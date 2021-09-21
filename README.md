@@ -7,4 +7,4 @@
 
 ### Created by Leithen Crider during the U of U coding bootcamp.
 
-![Screen shot of the password generator](https://github.com/Thenlie/develop/assets/images/screenshot.png)
+![Screen shot of the password generator](https://github.com/Thenlie/password-generator/develop/assets/images/screenshot.png)
