@@ -18,15 +18,10 @@ let generatePassword = function() {
   if (isNaN(passLength)){
     window.alert("Sorry, that is not a valid number! Please enter a numeric value.");
     generatePassword();
-  }
-  else if (passLength < 8 || passLength > 128) {
+  } else if (passLength < 8 || passLength > 128) {
     window.alert("Sorry, that is not a valid number! Please choose a number between 8 and 128.")
     generatePassword();
-  }
-  else {
-    window.alert("You typed an INT, congrats!");
-    window.alert(passLength);
-  }
+  } else {}
   
   //password character types
   let charStr = ('');
