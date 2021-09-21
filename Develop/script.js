@@ -1,9 +1,13 @@
 // Assignment code here
-const lowerChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-const upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-const numericChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const specialChar = [' ', '!', '"', '#', '$', '%', '&', "'", '()', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
-let passwordArr = [];
+const lowerChar = "abcdefghijklmnopqrstuvwxyz";
+const upperChar = lowerChar.toUpperCase;
+const numericChar = "1234567890";
+const specialChar = "!#$%&(')/:?@~";
+
+//random number generator function
+function randomNum(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 let generatePassword = function() {
 
@@ -23,32 +27,43 @@ let generatePassword = function() {
     window.alert("You typed an INT, congrats!");
     window.alert(passLength);
   }
-  debugger;
-  //password character type
+  
+  //password character types
+  let charStr = ('');
+
   let charLower = window.confirm("Would you like to include LOWERCASE characters?");
     if (charLower) {
       window.alert("You have added LOWERCASE characters to your password.");
+      charStr += (lowerChar);
     }
   let charUpper = window.confirm("Would you like to include UPPERCASE characters?");
     if (charUpper) {
       window.alert("You have added UPPERCASE characters to your password.");
+      charArr.push(upperChar);
     }
   let charNumeric = window.confirm("Would you like to include NUMERIC characters?");
     if (charNumeric) {
       window.alert("You have added NUMERIC characters to your password.");
+      charArr.push(numericChar);
     }
   let charSpecial = window.confirm("Would you like to include SPECIAL characters?");
     if (charSpecial) {
       window.alert("You have added SPECIAL characters to your password.");
+      charArr.push(specialChar);
     }
-  
+
+  //debugger;
+
+  //where the password will eventually go
+  let passwordStr = ('');
+
   //start loop to generate password
   for (let i = 0; i < passLength; i++) {
-
+    passwordStr += charStr[randomNum(0, charStr.length)];
   }
 
-  //letiable returned will become the password
-  return passLength;
+  //variable returned will become the password
+  return passwordStr;
 }
 
 // Get references to the #generate element
