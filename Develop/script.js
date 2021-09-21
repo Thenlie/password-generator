@@ -1,12 +1,12 @@
 // Assignment code here
 const lowerChar = "abcdefghijklmnopqrstuvwxyz";
-const upperChar = lowerChar.toUpperCase;
+const upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numericChar = "1234567890";
-const specialChar = "!#$%&(')/:?@~";
+const specialChar = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
 //random number generator function
 function randomNum(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 let generatePassword = function() {
@@ -34,22 +34,22 @@ let generatePassword = function() {
   let charLower = window.confirm("Would you like to include LOWERCASE characters?");
     if (charLower) {
       window.alert("You have added LOWERCASE characters to your password.");
-      charStr += (lowerChar);
+      charStr += lowerChar;
     }
   let charUpper = window.confirm("Would you like to include UPPERCASE characters?");
     if (charUpper) {
       window.alert("You have added UPPERCASE characters to your password.");
-      charArr.push(upperChar);
+      charStr += upperChar;
     }
   let charNumeric = window.confirm("Would you like to include NUMERIC characters?");
     if (charNumeric) {
       window.alert("You have added NUMERIC characters to your password.");
-      charArr.push(numericChar);
+      charStr += numericChar;
     }
   let charSpecial = window.confirm("Would you like to include SPECIAL characters?");
     if (charSpecial) {
       window.alert("You have added SPECIAL characters to your password.");
-      charArr.push(specialChar);
+      charStr += specialChar;
     }
 
   //debugger;
