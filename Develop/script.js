@@ -1,9 +1,14 @@
 // Assignment code here
-var generatePassword = function() {
-  debugger;
+const lowerChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const numericChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const specialChar = [' ', '!', '"', '#', '$', '%', '&', "'", '()', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
+let passwordArr = [];
+
+let generatePassword = function() {
 
   //password length
-  var passLength = window.prompt("Please choose the length of password you would like to generate.");
+  let passLength = window.prompt("Please choose the length of password you would like to generate.");
   passLength = parseInt(passLength, 10);
   
   if (isNaN(passLength)){
@@ -20,35 +25,39 @@ var generatePassword = function() {
   }
   debugger;
   //password character type
-  var charLower = window.confirm("Would you like to include LOWERCASE characters?");
+  let charLower = window.confirm("Would you like to include LOWERCASE characters?");
     if (charLower) {
       window.alert("You have added LOWERCASE characters to your password.");
     }
-  var charUpper = window.confirm("Would you like to include UPPERCASE characters?");
+  let charUpper = window.confirm("Would you like to include UPPERCASE characters?");
     if (charUpper) {
       window.alert("You have added UPPERCASE characters to your password.");
     }
-  var charNumeric = window.confirm("Would you like to include NUMERIC characters?");
+  let charNumeric = window.confirm("Would you like to include NUMERIC characters?");
     if (charNumeric) {
       window.alert("You have added NUMERIC characters to your password.");
     }
-  var charSpecial = window.confirm("Would you like to include SPECIAL characters?");
+  let charSpecial = window.confirm("Would you like to include SPECIAL characters?");
     if (charSpecial) {
       window.alert("You have added SPECIAL characters to your password.");
     }
   
-  
-  //Variable returned will become the password
+  //start loop to generate password
+  for (let i = 0; i < passLength; i++) {
+
+  }
+
+  //letiable returned will become the password
   return passLength;
 }
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
