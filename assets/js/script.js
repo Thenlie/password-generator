@@ -26,28 +26,35 @@ let generatePassword = function() {
   //password character types
   let charStr = ('');
 
-  let charLower = window.confirm("Would you like to include LOWERCASE characters?");
-    if (charLower) {
-      window.alert("You have added LOWERCASE characters to your password.");
-      charStr += lowerChar;
-    }
-  let charUpper = window.confirm("Would you like to include UPPERCASE characters?");
-    if (charUpper) {
-      window.alert("You have added UPPERCASE characters to your password.");
-      charStr += upperChar;
-    }
-  let charNumeric = window.confirm("Would you like to include NUMERIC characters?");
-    if (charNumeric) {
-      window.alert("You have added NUMERIC characters to your password.");
-      charStr += numericChar;
-    }
-  let charSpecial = window.confirm("Would you like to include SPECIAL characters?");
-    if (charSpecial) {
-      window.alert("You have added SPECIAL characters to your password.");
-      charStr += specialChar;
-    }
+  function charType() {
+    let charLower = window.confirm("Would you like to include LOWERCASE characters?");
+      if (charLower) {
+        window.alert("You have added LOWERCASE characters to your password.");
+        charStr += lowerChar;
+      }
+    let charUpper = window.confirm("Would you like to include UPPERCASE characters?");
+      if (charUpper) {
+        window.alert("You have added UPPERCASE characters to your password.");
+        charStr += upperChar;
+      }
+    let charNumeric = window.confirm("Would you like to include NUMERIC characters?");
+      if (charNumeric) {
+        window.alert("You have added NUMERIC characters to your password.");
+        charStr += numericChar;
+      }
+    let charSpecial = window.confirm("Would you like to include SPECIAL characters?");
+      if (charSpecial) {
+        window.alert("You have added SPECIAL characters to your password.");
+        charStr += specialChar;
+      }
+  }
 
-  //debugger;
+  charType();
+
+  if (charStr === '') {
+    window.alert("You must choose at least one character type! Please select again.");
+    charType();
+  }
 
   //where the password will eventually go
   let passwordStr = ('');
