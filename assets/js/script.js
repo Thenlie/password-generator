@@ -10,18 +10,22 @@ function randomNum(min, max) {
 }
 
 let generatePassword = function() {
+  let passLength = 0;
+  let isLengthValid = false;
 
-  //password length
-  let passLength = window.prompt("Please choose the length of password you would like to generate.");
-  passLength = parseInt(passLength, 10);
-  
+  while(!isLengthValid) { //ensure password length is valid
+   passLength = window.prompt("Please choose the length of password you would like to generate.");
+   passLength = parseInt(passLength, 10);
+ 
   if (isNaN(passLength)){
     window.alert("Sorry, that is not a valid number! Please enter a numeric value.");
-    generatePassword();
   } else if (passLength < 8 || passLength > 128) {
     window.alert("Sorry, that is not a valid number! Please choose a number between 8 and 128.")
-    generatePassword();
-  } else {}
+  } else {
+    isLengthValid = true;
+  }
+
+  }
   
   //password character types
   let charStr = ('');
