@@ -1,4 +1,4 @@
-# Password Generator Starter Code Hi Alex!
+# Password Generator Starter Code
 
 ## Links
 
