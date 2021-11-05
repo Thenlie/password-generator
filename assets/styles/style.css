@@ -141,9 +141,15 @@ button[disabled] {
   font-size: 18px;
 }
 
+.error-message {
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+  color: red;
+}
+
 .question {
   text-align: center;
-  padding: 15px;
   padding-top: 25px;
   color: hsl(206, 17%, 28%);
 }

@@ -1,8 +1,18 @@
+// Query Selectors
 const card = document.querySelector('.card');
 const modal = document.querySelector('.modal');
 const question = document.querySelector('.question');
 const modalFormEl = document.querySelector('.pass-len-form');
 const btnContainer = document.querySelector('.btn-container');
+const userInputEl = document.querySelector('.user-input');
+const errorMessageEl = document.querySelector('.error-message');
+
+// Global Variables
+let passLength = 0;
+let charStr = ('');
+let count = 0;
+let charType = '';
+let passwordStr = ('');
 
 // Assignment code here
 const lowerChar = "abcdefghijklmnopqrstuvwxyz";
@@ -10,11 +20,12 @@ const upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numericChar = "1234567890";
 const specialChar = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
-//random number generator function
+// Random number generator
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+// Turn displays on or off
 let toggleDisplay = function(x, y) {
   if (x.classList.contains('display-none')) {
     x.classList.remove('display-none')
@@ -25,77 +36,80 @@ let toggleDisplay = function(x, y) {
   }
 }
 
-let generatePassword2 = function() {
+// Start of password generation
+let generatePassword = function() {
   toggleDisplay(card, modal);
   question.textContent = 'Please choose the length of password you would like to generate.';
-  modalFormEl.addEventListener('submit', function(evt) {
-    evt.preventDefault();
-    toggleDisplay(modalFormEl, btnContainer);
-    question.textContent = 'Would you like to include LOWERCASE characters?';
-  })
+  modalFormEl.addEventListener('submit', passwordLength);
 };
 
-let generatePassword = function() {
-  let passLength = 0;
-  let isLengthValid = false;
+// Get the password length from user
+let passwordLength = function(evt) {
+  evt.preventDefault();
+  passLength = parseInt(userInputEl.value, 10);
+  while (passLength < 8 || passLength > 128 || isNaN(passLength)) {
+    errorMessageEl.textContent = 'Please input a number that is between 8 and 128!';
+    return;
+  };
+  errorMessageEl.textContent = '';
+  toggleDisplay(modalFormEl, btnContainer);
+  changeModal();
+};
 
-  while(!isLengthValid) { //ensure password length is valid
-   passLength = window.prompt("Please choose the length of password you would like to generate.");
-   passLength = parseInt(passLength, 10);
- 
-  if (isNaN(passLength)){
-    window.alert("Sorry, that is not a valid number! Please enter a numeric value.");
-  } else if (passLength < 8 || passLength > 128) {
-    window.alert("Sorry, that is not a valid number! Please choose a number between 8 and 128.")
+//Runs when form submitted or Yes or No are clicked
+let changeModal = function() {
+  if (count === 0) {
+    setTimeout(function() {
+      errorMessageEl.textContent = '';
+    }, 3500);
+    question.textContent = 'Would you like to include LOWERCASE characters?';
+    charType = lowerChar;
+  } else if (count === 1) {
+    question.textContent = 'Would you like to include UPPERCASE characters?';
+    charType = upperChar;
+  }else if (count === 2) {
+    question.textContent = 'Would you like to include NUMERIC characters?';
+    charType = numericChar;
+  }else if (count === 3) {
+    question.textContent = 'Would you like to include SPECIAL characters?';
+    charType = specialChar;
   } else {
-    isLengthValid = true;
+    if (charStr === '') {
+      errorMessageEl.textContent = 'You must choose at least one character type! Please select again.';
+      count = -1;
+      toInclude();
+    } else {
+      createPassword();
+    }
   }
+};
 
+// Runs when Yes or No is clicked
+let toInclude = function(evt) {
+  count++;
+  current = evt.target.textContent;
+  try {
+    if (current === 'Yes') {
+      charStr += charType;
+      console.log(charStr);
+      changeModal();
+    } else if (current === 'No') {
+      console.log(charStr);
+      changeModal();
+    }
+  } catch {
+    changeModal()
   }
-  
-  //password character types
-  let charStr = ('');
+};
 
-  function charType() {
-    let charLower = window.confirm("Would you like to include LOWERCASE characters?");
-      if (charLower) {
-        window.alert("You have added LOWERCASE characters to your password.");
-        charStr += lowerChar;
-      }
-    let charUpper = window.confirm("Would you like to include UPPERCASE characters?");
-      if (charUpper) {
-        window.alert("You have added UPPERCASE characters to your password.");
-        charStr += upperChar;
-      }
-    let charNumeric = window.confirm("Would you like to include NUMERIC characters?");
-      if (charNumeric) {
-        window.alert("You have added NUMERIC characters to your password.");
-        charStr += numericChar;
-      }
-    let charSpecial = window.confirm("Would you like to include SPECIAL characters?");
-      if (charSpecial) {
-        window.alert("You have added SPECIAL characters to your password.");
-        charStr += specialChar;
-      }
-  }
-
-  charType();
-
-  if (charStr === '') {
-    window.alert("You must choose at least one character type! Please select again.");
-    charType();
-  }
-
-  //where the password will eventually go
-  let passwordStr = ('');
-
-  //start loop to generate password
+// Randomize characters and send to writePassword
+let createPassword = function() {
   for (let i = 0; i < passLength; i++) {
     passwordStr += charStr[randomNum(0, charStr.length)];
   }
-
-  //variable returned will become the password
-  return passwordStr;
+  writePassword();
+  toggleDisplay(card, modal);
+  toggleDisplay(modalFormEl, btnContainer);
 }
 
 // Get references to the #generate element
@@ -103,10 +117,11 @@ let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  let password = generatePassword();
+  let password = passwordStr;
   let passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener('click', generatePassword);
+btnContainer.addEventListener('click', toInclude);
