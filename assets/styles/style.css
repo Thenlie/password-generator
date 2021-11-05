@@ -183,7 +183,6 @@ button[disabled] {
 }
 
 .confirm-btn, .reject-btn {
-  text-align: center;
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
@@ -191,7 +190,7 @@ button[disabled] {
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
-  margin: 15px auto;
+  margin: 15px 20px;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;

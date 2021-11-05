@@ -39,6 +39,9 @@ let toggleDisplay = function(x, y) {
 
 // Start of password generation
 let generatePassword = function() {
+  charStr = ('');
+  passwordStr = ('');
+  count = 0;
   toggleDisplay(card, modal);
   question.textContent = 'Please choose the length of password you would like to generate.';
   modalFormEl.addEventListener('submit', passwordLength);
@@ -90,10 +93,8 @@ let toInclude = function(evt) {
   try {
     if (current === 'Yes') {
       charStr += charType;
-      console.log(charStr);
       changeModal();
     } else if (current === 'No') {
-      console.log(charStr);
       changeModal();
     }
   } catch {
