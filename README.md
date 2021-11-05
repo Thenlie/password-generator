@@ -1,14 +1,15 @@
-# Password Generator Starter Code
-
-## Links
-
-* Live webpage available [here.](https://thenlie.github.io/password-generator/)
-* GitHub Repo available [here.](https://github.com/Thenlie/password-generator)
+# Password Generator
 
 ## Description
 
-This is a webpage that will generate a random password based on user input. Select the legnth of the password you would like and which character sets you want to include and you will be presented with the random password. 
+This is a webpage that will generate a random password based on user input. Select the length of the password you would like and which character sets you want to include and you will be presented with the random password. This was made during the U of U Full Stack Flex Bootcamp. 
 
-### Created by Leithen Crider during the U of U coding bootcamp.
+## Languages Used
+
+* HTML
+* CSS
+* JavaScript
+
+## A screenshot of the application.
 
 ![Screen shot of the password generator](https://github.com/Thenlie/password-generator/blob/main/assets/images/screenshot.PNG)
