@@ -6,6 +6,7 @@ const modalFormEl = document.querySelector('.pass-len-form');
 const btnContainer = document.querySelector('.btn-container');
 const userInputEl = document.querySelector('.user-input');
 const errorMessageEl = document.querySelector('.error-message');
+const generateBtn = document.querySelector("#generate");
 
 // Global Variables
 let passLength = 0;
@@ -80,9 +81,7 @@ let changeModal = function() {
       toInclude();
     } else {
       createPassword();
-    }
-  }
-};
+    }}};
 
 // Runs when Yes or No is clicked
 let toInclude = function(evt) {
@@ -99,8 +98,7 @@ let toInclude = function(evt) {
     }
   } catch {
     changeModal()
-  }
-};
+  }};
 
 // Randomize characters and send to writePassword
 let createPassword = function() {
@@ -110,17 +108,14 @@ let createPassword = function() {
   writePassword();
   toggleDisplay(card, modal);
   toggleDisplay(modalFormEl, btnContainer);
-}
-
-// Get references to the #generate element
-let generateBtn = document.querySelector("#generate");
+};
 
 // Write password to the #password input
 function writePassword() {
   let password = passwordStr;
   let passwordText = document.querySelector("#password");
   passwordText.value = password;
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', generatePassword);

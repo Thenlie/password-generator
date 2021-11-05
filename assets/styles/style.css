@@ -134,11 +134,12 @@ button[disabled] {
 
 /* Modal Styles */
 .modal {
-  height: 50%;
+  height: 35%;
   width: 50%;
   margin: 0 auto;
   background-color: white;
   font-size: 18px;
+  border-radius: 5px;
 }
 
 .error-message {
@@ -150,12 +151,50 @@ button[disabled] {
 
 .question {
   text-align: center;
+  margin: 25px;
   padding-top: 25px;
+  padding-bottom: 10px;
   color: hsl(206, 17%, 28%);
+  border-bottom: 2px solid rgba(165, 165, 165, 0.5);
 }
 
 .modal-body {
   text-align: center;
+}
+.user-input {
+  width: 80%;
+  height: 35px;
+  border-radius: 5px;;
+}
+
+.len-submit-btn {
+  text-align: center;
+  border: none;
+  background-color: hsl(360, 91%, 36%);
+  border-radius: 25px;
+  color: hsl(0, 0%, 100%);
+  display: block;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 25px auto;
+  padding: 14px 34px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.confirm-btn, .reject-btn {
+  text-align: center;
+  border: none;
+  background-color: hsl(360, 91%, 36%);
+  border-radius: 25px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 15px auto;
+  padding: 14px 34px;
+  text-align: center;
+  cursor: pointer;
 }
 
 @media (max-width: 690px) {
