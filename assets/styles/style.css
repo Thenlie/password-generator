@@ -12,9 +12,15 @@ body,
   padding: 0;
 }
 
+/* Utility Styles */
+.display-none {
+  display: none;
+}
+
+
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .wrapper {
@@ -48,6 +54,10 @@ header {
   width: 100%;
   background: #e7e9eb;
   height: 2px;
+}
+
+.card-header h2 {
+  text-align: center;
 }
 
 .card-body {
@@ -88,6 +98,10 @@ header {
   cursor: pointer;
 }
 
+.btn:hover {
+  background-color: rgb(119, 13, 13);
+}
+
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
@@ -116,6 +130,26 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+}
+
+/* Modal Styles */
+.modal {
+  height: 50%;
+  width: 50%;
+  margin: 0 auto;
+  background-color: white;
+  font-size: 18px;
+}
+
+.question {
+  text-align: center;
+  padding: 15px;
+  padding-top: 25px;
+  color: hsl(206, 17%, 28%);
+}
+
+.modal-body {
+  text-align: center;
 }
 
 @media (max-width: 690px) {

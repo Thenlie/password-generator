@@ -1,3 +1,9 @@
+const card = document.querySelector('.card');
+const modal = document.querySelector('.modal');
+const question = document.querySelector('.question');
+const modalFormEl = document.querySelector('.pass-len-form');
+const btnContainer = document.querySelector('.btn-container');
+
 // Assignment code here
 const lowerChar = "abcdefghijklmnopqrstuvwxyz";
 const upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -8,6 +14,26 @@ const specialChar = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+
+let toggleDisplay = function(x, y) {
+  if (x.classList.contains('display-none')) {
+    x.classList.remove('display-none')
+    y.classList.add('display-none')
+  } else {
+    x.classList.add('display-none');
+    y.classList.remove('display-none');
+  }
+}
+
+let generatePassword2 = function() {
+  toggleDisplay(card, modal);
+  question.textContent = 'Please choose the length of password you would like to generate.';
+  modalFormEl.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    toggleDisplay(modalFormEl, btnContainer);
+    question.textContent = 'Would you like to include LOWERCASE characters?';
+  })
+};
 
 let generatePassword = function() {
   let passLength = 0;

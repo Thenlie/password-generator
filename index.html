@@ -12,6 +12,7 @@
       <header>
         <h1>Password Generator</h1>
       </header>
+      <!-- Card Start -->
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
@@ -26,6 +27,23 @@
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+      <!-- Card End -->
+      <!-- Modal Start -->
+      <div class="modal display-none">
+        <div class="modal-header">
+          <h2 class="question">Question</h2>
+        </div>
+        <div class="modal-body">
+          <form class="pass-len-form">
+            <input type="text" class="user-input" name="password-length">
+            <button class="len-submit-btn" type="submit">Submit</button>
+          </form>
+          <div class="btn-container display-none">
+            <button class="confirm-btn">Yes</button>
+            <button class="reject-btn">No</button>
+          </div>
         </div>
       </div>
     </div>
