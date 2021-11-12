@@ -1,4 +1,4 @@
-# Password Generator
+# Password Generator  ![Project License Badge](https://img.shields.io/badge/license-MIT-brightgreen)
 
 ## Description
 
